@@ -83,8 +83,27 @@ router.post('/courses/:courseId', userMiddleware, async(req, res) => {
     }
 });
 
-router.get('/purchasedCourses', userMiddleware, (req, res) => {
-    // Implement fetching purchased courses logic
+router.get('/purchasedCourses', userMiddleware, async (req, res) => {
+    try {
+        const username = req.username;
+        const findUser = await User.findOne({
+            username
+        });
+        const getCoursesArr = findUser.purchasedCourses;
+        const courses = await Course.find({
+            _id: {$in : getCoursesArr}
+        }).select('title price');
+        res.status(200).json({
+            username,
+            courses
+        });
+    } catch (error) {
+        res.status(404).json({
+            msg: "User does not exist"
+        })
+    }
+
+
 });
 
 module.exports = router
