@@ -53,9 +53,34 @@ router.get('/courses', userMiddleware, async (req, res) => {
     });
 });
 
-router.post('/courses/:courseId', userMiddleware, (req, res) => {
-    // Implement course purchase logic
-    res.send(req.username);
+router.post('/courses/:courseId', userMiddleware, async(req, res) => {
+
+    try {
+        const id = req.params.courseId;
+        const findCourse = await Course.findOne({_id:id});
+        const username = req.username;
+        const check = await User.findOne({
+            username,
+            purchasedCourses: {$in:[id]} 
+        });
+        if (check) {
+            return res.status(405).json({
+                msg: "Already Purchased"
+            })
+        }
+        const user = await User.findOneAndUpdate({
+            username
+        }, {
+            "$push": {purchasedCourses:id}
+        })
+        res.status(200).json({
+            msg: "Course purchased"
+        });
+    } catch (error) {
+        res.status(404).json({
+            msg: "No such course found."
+        });
+    }
 });
 
 router.get('/purchasedCourses', userMiddleware, (req, res) => {
