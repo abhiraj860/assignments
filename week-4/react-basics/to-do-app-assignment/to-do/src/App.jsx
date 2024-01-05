@@ -42,33 +42,29 @@ function App() {
   const [items, setItems] = useState([]);
   const [title, setTitle] = useState('');
   const [description, setDesc] = useState('');
-  const [messageTitle, setMessageTitle] = useState('');
-  const [messageDesc, setMessageDesc] = useState('');
 
   function titleHandler(event) {
     setTitle(event.target.value);
-    setMessageTitle(event.target.value);
   }
 
   function descriptionHandler(event) {
     setDesc(event.target.value);
-    setMessageDesc(event.target.value);
   }
 
   function addHandler() {
-    if(messageTitle.length === 0) {
+    if(title.length === 0) {
       alert('Please enter the title');
       return;
     }
-    if(messageDesc.length === 0) {
+    if(description.length === 0) {
       alert('Please enter the description');
       return;
     }
     const todo = {title, description};
     const arr = [...items, todo];
     setItems(arr);
-    setMessageTitle('');
-    setMessageDesc('');
+    setTitle('');
+    setDesc('');
   }
 
   function removeHandler() {
@@ -83,11 +79,11 @@ function App() {
 
   return (
     <div>
-      <InputTitle titleHandler={titleHandler} message={messageTitle}/> <br />
-      <InputDesc descriptionHandler={descriptionHandler} message={messageDesc}/> <br />
-      <Add clickHandler={addHandler}/> 
-      <Remove removeHandler={removeHandler}/>
-      <Todotable itemList={items}/>
+      <InputTitle titleHandler={titleHandler} message={title} /> <br />
+      <InputDesc descriptionHandler={descriptionHandler} message={description} /> <br />
+      <Add clickHandler={addHandler} /> 
+      <Remove removeHandler={removeHandler} />
+      <Todotable itemList={items} />
     </div>
   )
 }
