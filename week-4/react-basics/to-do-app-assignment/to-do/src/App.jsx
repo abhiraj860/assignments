@@ -17,8 +17,8 @@ function Add({clickHandler}) {
   return <button onClick={clickHandler}>Add item</button>
 }
 
-function Remove() {
-  return <button>Remove item</button>
+function Remove({removeHandler}) {
+  return <button onClick={removeHandler}>Remove item</button>
 }
 
 function Todotable({itemList}) {
@@ -71,14 +71,22 @@ function App() {
     setMessageDesc('');
   }
 
-  
+  function removeHandler() {
+    const arr = [...items];
+    if(arr.length === 0) {
+      alert('Nothing to remove');
+      return;
+    }
+    arr.pop();
+    setItems(arr);
+  }
 
   return (
     <div>
       <InputTitle titleHandler={titleHandler} message={messageTitle}/> <br />
       <InputDesc descriptionHandler={descriptionHandler} message={messageDesc}/> <br />
       <Add clickHandler={addHandler}/> 
-      <Remove />
+      <Remove removeHandler={removeHandler}/>
       <Todotable itemList={items}/>
     </div>
   )
