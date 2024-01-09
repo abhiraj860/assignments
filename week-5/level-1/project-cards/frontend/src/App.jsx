@@ -10,8 +10,8 @@ function Card({props}) {
       {props.interests.map((value, id)=>{return <li className='interestItem' key={id}>{value}</li>})}
     </ul>
     <div className='socialLinks'>
-    <a href={props.linkedin} className='link'>LinkedIn</a>
-    <a href={props.twitter} className='link'>Twitter</a>
+    <a href={props.linkedin} className='link' target='_blank'>LinkedIn</a>
+    <a href={props.twitter} className='link' target='_blank'>Twitter</a>
     </div>
   </div>
 }

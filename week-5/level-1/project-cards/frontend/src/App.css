@@ -20,6 +20,7 @@
 .socialLinks {
     display: flex;
     margin-bottom: 15px;
+    margin-left: -10px;
 }
 .link {
     text-decoration: none;
