@@ -1,9 +1,16 @@
+.page{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: space-between;
+}
 .card {
     border: 1px solid #ddd;
     border-radius: 8px;
     padding: 20px;
-    margin: 20px;
+    margin: 10px;
     max-width: 400px;
+    margin-left: 100px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     background-color: #f8f9fa
 }
