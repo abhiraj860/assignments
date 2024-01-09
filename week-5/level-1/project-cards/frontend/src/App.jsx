@@ -18,8 +18,8 @@ function App() {
                               });
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
+  const [interests, setInterests] = useState([]);
                             
-  const [counter, setCounter] = useState(1);
   function inputNameHandler(event) {
     setName(event.target.value);
   }
@@ -28,25 +28,49 @@ function App() {
     setDescription(event.target.value);
   }
 
+  function interestsHandler(event) {
+    const str = event.target.value;
+    const arr = str.split(/[, ]+/);
+    setInterests(arr);
+  }
+  
   function clickHandler() {
+    if(name.length === 0) {
+      alert('Enter name');
+      return;
+    }
+    if(description.length === 0) {
+      alert('Enter description');
+      return;
+    }
+    if(interests.length === 0) {
+      alert('Enter interests');
+      return;
+    }
     let copy = {...props};
     copy.name = name;
     copy.description = description;
+    copy.interests = interests;
     setProps(copy);
   }
 
 
   return <div className='page'>
-    <Input clickHandler={clickHandler} inputNameHandler={inputNameHandler} inputDescriptionHandler={inputDescriptionHandler}/>
+    <Input clickHandler={clickHandler} 
+            inputNameHandler={inputNameHandler} 
+            inputDescriptionHandler={inputDescriptionHandler}
+            interestsHandler={interestsHandler}/>
     <Card props={props}/>
   </div>
 }
 
-function Input({clickHandler, inputNameHandler, inputDescriptionHandler}) {
+function Input({clickHandler, inputNameHandler, inputDescriptionHandler, interestsHandler}) {
   return <div>
     <input onBlur={inputNameHandler} className='inputname' type='text' placeholder='Enter your name'/>
     <br></br>
     <input onBlur={inputDescriptionHandler} className='inputdescription' type='text' placeholder='Give a short description'/>
+    <br></br>
+    <input onBlur={interestsHandler} className='interestsHandler' type='text' placeholder='Enter your interests'/>
     <br></br>
     <button onClick={clickHandler}>Create Card</button>
   </div>
