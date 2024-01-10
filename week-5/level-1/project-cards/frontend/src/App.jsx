@@ -84,18 +84,18 @@ function Input({clickHandler,
                 interestsHandler,
                 linkedInHandler,
                 twitterHandler}) {
-  return <div>
-    <input onBlur={inputNameHandler} className='inputname' type='text' placeholder='Enter your name...'/>
+  return <div className='card'>
+    <input onBlur={inputNameHandler} className='inputBox' type='text' placeholder='Enter your name...'/>
     <br></br>
-    <input onBlur={inputDescriptionHandler} className='inputdescription' type='text' placeholder='Give a short description...'/>
+    <input onBlur={inputDescriptionHandler} className='inputBox' type='text' placeholder='Give a short description...'/>
     <br></br>
-    <input onBlur={interestsHandler} className='interestsHandler' type='text' placeholder='Enter your interests...'/>
+    <input onBlur={interestsHandler} className='inputBox' type='text' placeholder='Enter your interests...'/>
     <br></br>
-    <input onBlur={linkedInHandler} className='linkedInhandler' type='text' placeholder='Enter your LinkedIn link...'/>
+    <input onBlur={linkedInHandler} className='inputBox' type='text' placeholder='Enter your LinkedIn link...'/>
     <br></br>
-    <input onBlur={twitterHandler} className='interestsHandler' type='text' placeholder='Enter your Twitter link...'/>
+    <input onBlur={twitterHandler} className='inputBox' type='text' placeholder='Enter your Twitter link...'/>
     <br></br>
-    <button onClick={clickHandler}>Create Card</button>
+    <button onClick={clickHandler} className='createButton'>Create Card</button>
   </div>
 }
 

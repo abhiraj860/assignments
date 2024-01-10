@@ -1,3 +1,37 @@
+.inputBox {
+width: 300px;
+padding: 10px;
+font-size: 16px;
+border: 1px solid #ccc;
+border-radius: 5px;
+outline: none;
+margin-bottom: 12px;
+}
+
+.inputBox:focus {
+border-color: #2196F3;
+box-shadow: 0 0 5px rgba(33, 150, 243, 0.7);
+}
+
+.createButton {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    border: 2px solid #2196F3;
+    border-radius: 5px;
+    color: #2196F3;
+    background-color: #fff;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+  }
+
+  .createButton:hover {
+    background-color: #2196F3;
+    color: #fff;
+  }
+
 .page{
     display: flex;
     justify-content: center;
@@ -9,7 +43,7 @@
     border-radius: 8px;
     padding: 20px;
     margin: 10px;
-    max-width: 400px;
+    width: 30%;
     margin-left: 100px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     background-color: #f8f9fa
