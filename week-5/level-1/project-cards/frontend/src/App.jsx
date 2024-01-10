@@ -19,6 +19,8 @@ function App() {
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
   const [interests, setInterests] = useState([]);
+  const [linkedIn, setLinkedIn] = useState('');
+  const [twitter, setTwitter] = useState('');
                             
   function inputNameHandler(event) {
     setName(event.target.value);
@@ -64,13 +66,16 @@ function App() {
   </div>
 }
 
-function Input({clickHandler, inputNameHandler, inputDescriptionHandler, interestsHandler}) {
+function Input({clickHandler, 
+                inputNameHandler, 
+                inputDescriptionHandler, 
+                interestsHandler}) {
   return <div>
-    <input onBlur={inputNameHandler} className='inputname' type='text' placeholder='Enter your name'/>
+    <input onBlur={inputNameHandler} className='inputname' type='text' placeholder='Enter your name...'/>
     <br></br>
-    <input onBlur={inputDescriptionHandler} className='inputdescription' type='text' placeholder='Give a short description'/>
+    <input onBlur={inputDescriptionHandler} className='inputdescription' type='text' placeholder='Give a short description...'/>
     <br></br>
-    <input onBlur={interestsHandler} className='interestsHandler' type='text' placeholder='Enter your interests'/>
+    <input onBlur={interestsHandler} className='interestsHandler' type='text' placeholder='Enter your interests...'/>
     <br></br>
     <button onClick={clickHandler}>Create Card</button>
   </div>
