@@ -35,6 +35,14 @@ function App() {
     const arr = str.split(/[, ]+/);
     setInterests(arr);
   }
+
+  function linkedInHandler(event) {
+    setLinkedIn(event.target.value);
+  }
+
+  function twitterHandler(event) {
+    setTwitter(event.target.value);
+  }
   
   function clickHandler() {
     if(name.length === 0) {
@@ -53,6 +61,8 @@ function App() {
     copy.name = name;
     copy.description = description;
     copy.interests = interests;
+    copy.linkedin = linkedIn;
+    copy.twitter = twitter;
     setProps(copy);
   }
 
@@ -61,7 +71,9 @@ function App() {
     <Input clickHandler={clickHandler} 
             inputNameHandler={inputNameHandler} 
             inputDescriptionHandler={inputDescriptionHandler}
-            interestsHandler={interestsHandler}/>
+            interestsHandler={interestsHandler}
+            linkedInHandler={linkedInHandler}
+            twitterHandler={twitterHandler}/>
     <Card props={props}/>
   </div>
 }
@@ -69,13 +81,19 @@ function App() {
 function Input({clickHandler, 
                 inputNameHandler, 
                 inputDescriptionHandler, 
-                interestsHandler}) {
+                interestsHandler,
+                linkedInHandler,
+                twitterHandler}) {
   return <div>
     <input onBlur={inputNameHandler} className='inputname' type='text' placeholder='Enter your name...'/>
     <br></br>
     <input onBlur={inputDescriptionHandler} className='inputdescription' type='text' placeholder='Give a short description...'/>
     <br></br>
     <input onBlur={interestsHandler} className='interestsHandler' type='text' placeholder='Enter your interests...'/>
+    <br></br>
+    <input onBlur={linkedInHandler} className='linkedInhandler' type='text' placeholder='Enter your LinkedIn link...'/>
+    <br></br>
+    <input onBlur={twitterHandler} className='interestsHandler' type='text' placeholder='Enter your Twitter link...'/>
     <br></br>
     <button onClick={clickHandler}>Create Card</button>
   </div>
