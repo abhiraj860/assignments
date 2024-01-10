@@ -1,13 +1,6 @@
-import { useEffect, useState } from 'react'
+import { useState, memo } from 'react'
 import './App.css'
 
-// const prop = {
-  //   name: 'Lokeshwar',
-  //   description: 'A TA in the 100xDevs Cohort 2.0',
-  //   interests: ['Ionic', 'Open Source', 'App Dev'],
-  //   linkedin: "https://www.linkedin.com",
-  //   twitter: "https://twitter.com"
-  // };
 
 function App() {
   const [props, setProps] = useState({name: 'Your name',
@@ -107,7 +100,8 @@ function Input({clickHandler,
   </div>
 }
 
-function Card({props}) {
+function Card ({props}) {
+  console.log('render', props);
   return <div className='card'>
     <h1 className='name'>{props.name}</h1>
     <p className='description'>{props.description}</p>
