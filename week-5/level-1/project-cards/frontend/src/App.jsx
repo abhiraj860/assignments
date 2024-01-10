@@ -32,7 +32,7 @@ function App() {
 
   function interestsHandler(event) {
     const str = event.target.value;
-    const arr = str.split(/[, ]+/);
+    const arr = str.split(',');
     setInterests(arr);
   }
 
@@ -55,6 +55,14 @@ function App() {
     }
     if(interests.length === 0) {
       alert('Enter interests');
+      return;
+    }
+    if(linkedIn.length === 0) {
+      alert('Enter LinkedIn Url');
+      return;
+    }
+    if(twitter.length === 0) {
+      alert('Enter twitter Url');
       return;
     }
     let copy = {...props};
