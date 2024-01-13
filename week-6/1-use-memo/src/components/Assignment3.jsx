@@ -12,7 +12,11 @@ const Assignment3 = () => {
     ]);
 
     // Your code starts here
-    const totalValue = 0;
+    const totalValue = useMemo(()=>{
+        let sums = 0;
+        items.forEach((item)=>{sums = sums + item.value});
+        return sums;
+    },[items]);
     // Your code ends here
     return (
         <div>
