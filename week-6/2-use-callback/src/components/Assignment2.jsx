@@ -11,7 +11,7 @@ export function Assignment2() {
     const showAlert = useCallback(()=>{
         alert(inputText);
         return;
-    });
+    }, [inputText]);
         
     // Your code ends here
 

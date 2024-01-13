@@ -21,11 +21,7 @@ export function Assignment2() {
     const [filter, setFilter] = useState("");
 
     const filteredSentences = useMemo(()=>{
-        if(words.includes(filter)) {
-            return sentences.filter(x => x.includes(filter));
-        } else {
-            return sentences;
-        } 
+        return sentences.filter(x => x.includes(filter));
     },[sentences, filter]);
 
     return <div>
