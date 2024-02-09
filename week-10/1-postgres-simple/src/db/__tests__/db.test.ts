@@ -7,7 +7,7 @@ beforeAll(async () => {
     await client.connect();
     await dropTables();
     await createTables();
-});
+}, 10000);
 
 afterAll(async () => {
     await client.end();
@@ -51,7 +51,7 @@ describe('Todo Operations', () => {
       const title = 'Test Todo';
       const description = 'Test Description';
       const todo = await createTodo(userId, title, description);
-  
+      
       expect(todo).toHaveProperty('id');
       expect(todo.title).toEqual(title);
       expect(todo.description).toEqual(description);
